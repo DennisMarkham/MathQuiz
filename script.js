@@ -3,13 +3,14 @@
 var numCorrect = 0;
 var userID = "";
 var atSign = "@";
-var dot = "."
+var dot = ".";
 document.onkeyup = function(event)
 {
 	userID = $("#email").val();
 	if (userID.includes(atSign) == true  && userID.includes(dot) == true)
 	{
 		$("#emCheck").text("Thank you for your email address!");
+		$("#emCheck").css("color", "black");
 	}
 	else
 	{
@@ -42,12 +43,23 @@ var userID = $("#email").val();
 console.log(q1Answer + q2Answer);
 console.log(numCorrect);
 console.log(userID);
+
+var newItem = {email: $("#newItem").val(),
+				score: numCorrect}
+
+        
+      $.post("/api/new", newItem)
+      .then(function(data) {
+        console.log(data);
+        alert("Adding task...");
+      });
+
 }
 
-function start()
-{
-	// $("#q1int1").text(q1int1);
-	// $("#q1int2").text(q1int2);
+// function start()
+// {
+// 	// $("#q1int1").text(q1int1);
+// 	// $("#q1int2").text(q1int2);
 
-}
+// }
 
