@@ -55,8 +55,8 @@ function insertion() {
 	console.log(newItem.email);
   connection.query("INSERT INTO mathquiz (taker, score) VALUES ('" + newItem.email + "', '" + newItem.score + "');", function(err, res) {
     if (err) throw err;
+    console.log("Insertion function fired.");
     
-    //everything seems to work, it just doesn't seem to put the data into the table. WHY!?!?
     connection.end();
 
   });
