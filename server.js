@@ -63,3 +63,6 @@ function insertion() {
 }
 
 });
+
+//putting this here in imitation of the Hot Restaraunt app
+require("./routes/apiRoutes")(app);

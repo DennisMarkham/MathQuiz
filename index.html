@@ -8,6 +8,9 @@
 E-mail: <input type="text" id = "email"> <span id = "emCheck" style = "color:red;">Please enter valid e-mail address.</span>
 <br>
 <br>
+<!-- <form action = "result.html"> -->
+  <!-- so the question is how do we get it to link to another page -->
+  <form>
   <p>What is 2 + 2?</p>
   <input type="radio" name="q1" value="correct">4<br>
   <input type="radio" name="q1" value="wrong">8<br>
@@ -18,8 +21,8 @@ E-mail: <input type="text" id = "email"> <span id = "emCheck" style = "color:red
   <input type="radio" name="q2" value="wrong">14<br>
   <input type="radio" name="q2" value="wrong">3
   
-  <button onclick = "check();">submit</button>
-
+  <button onclick = "check();"><a href = "api/result">submit</a></button>
+</form>
 <!-- <script src="script.js"></script> -->
 <script>
 // var q1int1 = Math.floor(Math.random() * 10) + 1;
@@ -67,6 +70,9 @@ var userID = $("#email").val();
 console.log("Answers:" + q1Answer + q2Answer);
 console.log("Score:" + numCorrect);
 console.log("email:" + userID);
+
+//store num correct in local storage
+localStorage.setItem("numCorrect", numCorrect);
 
 var newItem = {email: userID,
 				score: numCorrect}

@@ -1,0 +1,18 @@
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+
+</head>
+<body onload = "fill()">
+<p>Your score was <span id = "numCorrect"></span>/<span id = "numTotal"></span></p>
+<script>
+var numCorrect = localStorage.getItem("numCorrect");
+
+function fill(){
+$("#numCorrect").text(numCorrect);
+
+//I will make this a variable later
+$("#numTotal").text("2");
+}
+</script>
+</body>
