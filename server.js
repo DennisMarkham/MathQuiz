@@ -53,7 +53,8 @@ app.post("/api/new", function(req, res) {
 function insertion() {
 	console.log("Insertion function firing");
 	console.log(newItem.email);
-  connection.query("INSERT INTO mathquiz (taker, score) VALUES ('" + newItem.email + "', '" + newItem.score + "');", function(err, res) {
+  console.log(newItem.time);
+  connection.query("INSERT INTO mathquiz (taker, score, timeTaken) VALUES ('" + newItem.email + "', '" + newItem.score + "', '" + timeTaken + "');", function(err, res) {
     if (err) throw err;
     console.log("Insertion function fired.");
     

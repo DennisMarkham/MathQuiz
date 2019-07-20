@@ -1,8 +1,7 @@
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	
-
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 <body>
 E-mail: <input type="text" id = "email"> <span id = "emCheck" style = "color:red;">Please enter valid e-mail address.</span>
@@ -62,11 +61,12 @@ function check()
 {
 var q1Answer = $("input[name='q1']:checked").val();
 c(q1Answer);
-
 var q2Answer = $("input[name='q2']:checked").val();
 c(q2Answer);
-
 var userID = $("#email").val();
+var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+console.log("Time:" + time);
 console.log("Answers:" + q1Answer + q2Answer);
 console.log("Score:" + numCorrect);
 console.log("email:" + userID);
@@ -75,7 +75,8 @@ console.log("email:" + userID);
 localStorage.setItem("numCorrect", numCorrect);
 
 var newItem = {email: userID,
-				score: numCorrect}
+				score: numCorrect,
+        time: time}
 
         
       $.post("/api/new", newItem)
