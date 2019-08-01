@@ -54,7 +54,7 @@ function insertion() {
 	console.log("Insertion function firing");
 	console.log(newItem.email);
   console.log(newItem.time);
-  connection.query("INSERT INTO mathquiz (taker, score, timeTaken) VALUES ('" + newItem.email + "', '" + newItem.score + "', '" + timeTaken + "');", function(err, res) {
+  connection.query("INSERT INTO mathquiz (taker, score, timeTaken) VALUES ('" + newItem.email + "', '" + newItem.score + "', '" + newItem.time + "');", function(err, res) {
     if (err) throw err;
     console.log("Insertion function fired.");
     

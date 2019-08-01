@@ -3,27 +3,55 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
-<body>
+<body onload = "timer();">
+<span id = "timer">0:00</span>
+<br>
 E-mail: <input type="text" id = "email"> <span id = "emCheck" style = "color:red;">Please enter valid e-mail address.</span>
 <br>
 <br>
 <!-- <form action = "result.html"> -->
   <!-- so the question is how do we get it to link to another page -->
   <form>
+  <ol>
+  <li>  
   <p>What is 2 + 2?</p>
   <input type="radio" name="q1" value="correct">4<br>
   <input type="radio" name="q1" value="wrong">8<br>
   <input type="radio" name="q1" value="wrong">6
+</li>
 <br>
+<li>
   <p>What is 2 + 6?</p>
   <input type="radio" name="q2" value="correct">8<br>
   <input type="radio" name="q2" value="wrong">14<br>
   <input type="radio" name="q2" value="wrong">3
-  
+</li>
+  </ol>
   <button onclick = "check();"><a href = "api/result">submit</a></button>
 </form>
 <!-- <script src="script.js"></script> -->
 <script>
+  time = 120;
+
+function countDown(){
+  time--;
+
+  minutes = Math.floor(time/60);
+  seconds = time%60;
+
+  $("#timer").text(minutes + ":" + seconds);
+  //still need to figure out how to format time
+
+  //When it reaches zero, same function as clicking submit.
+  if (time == 0)
+  {
+    check();
+  }
+}
+
+  function timer(){
+    setInterval(countDown, 1000)
+  }
 // var q1int1 = Math.floor(Math.random() * 10) + 1;
 // var q1int2 = Math.floor(Math.random() * 10) + 1;
 var numCorrect = 0;
