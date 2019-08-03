@@ -38,14 +38,27 @@ function countDown(){
 
   minutes = Math.floor(time/60);
   seconds = time%60;
+  opZero = "";
+  //must figure out how to make turn into a zero when seconds
+  //becomes single digit
 
-  $("#timer").text(minutes + ":" + seconds);
+  $("#timer").text(minutes + ":" + opZero + seconds);
   //still need to figure out how to format time
 
   //When it reaches zero, same function as clicking submit.
+
+  if (seconds < 10)
+  {
+    opZero = "0";
+  }
+  //this doesn't work.  Why!?
+
+  
   if (time == 0)
   {
-    check();
+    $("button").trigger("click");
+    //why isn't this working?
+    //the url even changes but the page does not.
   }
 }
 
