@@ -37,7 +37,7 @@ app.get("/", function(req, res) {
 app.post("/api/new", function(req, res) {
 
   var newItem = req.body;
-  
+  //newItem is the data sent
 
   console.log(newItem.email + newItem.score);
 
@@ -60,10 +60,19 @@ function insertion() {
     
     connection.end();
 
+
+    //will putting this here make it go the results page?  That's my current problem
+    //it does not go to the results page
+  //   app.get("/result", function(req, res) {
+  // res.sendFile(path.join(__dirname, "/result.html"));
+});
+//     //*********
   });
 }
 
 });
 
 //putting this here in imitation of the Hot Restaraunt app
-require("./routes/apiRoutes")(app);
+//what does it actually do, though?  Will try deleting.
+// require("./routes/apiRoutes")(app);
+//seems useless.
